@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary-blue: #3040D3;
+    --primary-black: #010410;
+    --text-muted: #111827;
+    --border-gray: #E5E7EB;
+  }
+
+  body {
+    font-family: 'Inconsolata', monospace;
+    background-color: #ffffff;
+    color: #000000;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-title {
+    font-family: 'Michroma', sans-serif;
+  }
+}
+
+/* Futuristic Chamfered Button Shapes */
+.btn-chamfer-solid {
+  position: relative;
+  background-color: #3040D3;
+  color: #ffffff;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 14px rgba(48, 64, 211, 0.35);
+}
+
+.btn-chamfer-solid:hover {
+  background-color: #2432B8;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(48, 64, 211, 0.5);
+}
+
+.btn-chamfer-solid:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(48, 64, 211, 0.3);
+}
+
+.btn-chamfer-outline {
+  position: relative;
+  background-color: #ffffff;
+  color: #3040D3;
+  transition: all 0.2s ease;
+}
+
+.btn-chamfer-outline:hover {
+  background-color: rgba(48, 64, 211, 0.05);
+  transform: translateY(-1px);
+}
+
+/* Chamfered Card Borders */
+.card-chamfer {
+  position: relative;
+  background: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-chamfer:hover {
+  transform: translateY(-4px);
+}
+
+/* Pulsing Cyberpunk Hexagon & HUD Rings */
+@keyframes pulseGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 25px rgba(48, 64, 211, 0.6)) drop-shadow(0 0 50px rgba(48, 64, 211, 0.3));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 35px rgba(48, 64, 211, 0.85)) drop-shadow(0 0 70px rgba(48, 64, 211, 0.45));
+    transform: scale(1.015);
+  }
+}
+
+.animate-glow-pulse {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 40s linear infinite;
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: floatGentle 5s ease-in-out infinite;
+}
